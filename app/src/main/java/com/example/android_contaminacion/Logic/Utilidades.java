@@ -1,4 +1,4 @@
-package com.example.android_contaminacion;
+package com.example.android_contaminacion.Logic;
 
 
 import java.math.BigInteger;

@@ -19,11 +19,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.android_contaminacion.Logic.Utilidades;
 import com.example.android_contaminacion.POJO.Medicion;
 import com.example.android_contaminacion.POJO.TramaIBeacon;
-import com.example.android_contaminacion.R;
-import com.example.android_contaminacion.RetrofitClient;
-import com.example.android_contaminacion.Utilidades;
+import com.example.android_contaminacion.Api.RetrofitClient;
 
 import java.util.List;
 
