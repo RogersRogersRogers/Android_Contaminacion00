@@ -1,11 +1,20 @@
 
 package com.example.android_contaminacion.POJO;
-
+/********************************************
+ * @file TramaIBeacon.java
+ * @brief Clase que representa una trama iBeacon, extrayendo sus diferentes campos a partir de un array de bytes.
+ * @version 1.0
+ * @date 2024
+ *******************************************/
 import java.util.Arrays;
 
 // -----------------------------------------------------------------------------------
-// @author: Jordi Bataller i Mascarell
+// @author: Rogers Ernesto Sobrado Meneses
 // -----------------------------------------------------------------------------------
+/********************************************
+ * @class TramaIBeacon
+ * @brief Clase que modela los datos de una trama iBeacon y permite acceder a sus diferentes componentes, tales como UUID, Major, Minor y más.
+ *******************************************/
 public class TramaIBeacon {
     private byte[] prefijo = null; // 9 bytes
     private byte[] uuid = null; // 16 bytes
@@ -89,6 +98,10 @@ public class TramaIBeacon {
 
     // -------------------------------------------------------------------------------
     // -------------------------------------------------------------------------------
+    /********************************************
+     * @brief Constructor de la clase TramaIBeacon.
+     * @param bytes Array de bytes que contiene los datos de la trama iBeacon.
+     *******************************************/
     public TramaIBeacon(byte[] bytes ) {
         this.losBytes = bytes;
 

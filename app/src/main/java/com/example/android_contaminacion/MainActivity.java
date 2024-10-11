@@ -1,5 +1,10 @@
 package com.example.android_contaminacion;
-
+/********************************************
+ * @file MainActivity.java
+ * @brief Clase principal de la aplicación desde la que se inicia el escaneo de dispositivos BTLE.
+ * @version 1.0
+ * @date 2024
+ *******************************************/
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -29,9 +34,18 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
+/********************************************
+ * @class MainActivity
+ * @brief La clase principal que gestiona la interfaz y las funciones BTLE.
+ */
 public class MainActivity extends AppCompatActivity {
 
+    /********************************************
+     * @file MainActivity.java
+     * @brief Clase principal de la aplicación desde la que se inicia el escaneo de dispositivos BTLE.
+     * @version 1.0
+     * @date 2024
+     *******************************************/
     private static final String ETIQUETA_LOG = ">>>>";
     private static final int CODIGO_PETICION_PERMISOS = 11223344;
 
@@ -97,6 +111,11 @@ public class MainActivity extends AppCompatActivity {
                 .build(), callbackDelEscaneo);
     }
 
+    /**************************************************
+     * @fn void mostrarInformacionDispositivoBTLE(ScanResult resultado)
+     * @brief Método que muestra por consola la información de un dispositivo BTLE detectado.
+     * @param[in] resultado Objeto ScanResult con la información del dispositivo detectado.
+     **************************************************/
     private void mostrarInformacionDispositivoBTLE(ScanResult resultado) {
         BluetoothDevice bluetoothDevice = resultado.getDevice();
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
@@ -118,7 +137,11 @@ public class MainActivity extends AppCompatActivity {
         // Actualizar el TextView con la información del dispositivo
         runOnUiThread(() -> textViewDatosRecibidos.append(dispositivoInfo + "\n"));
     }
-
+    /**********************************************************
+     * @fn void buscarEsteDispositivoBTLE(String dispositivoBuscado)
+     * @brief Método que inicia el escaneo de un dispositivo BTLE específico.
+     * @param[in] dispositivoBuscado UUID del dispositivo BTLE que se busca.
+     ***********************************************************/
     private void buscarEsteDispositivoBTLE(final String dispositivoBuscado ) {
         Log.d(ETIQUETA_LOG, " buscarEsteDispositivoBTLE(): empieza ");
 
@@ -199,6 +222,10 @@ public class MainActivity extends AppCompatActivity {
         enviar();
     }
 
+    /******************************************************************
+     * @fn void detenerBusquedaDispositivosBTLE()
+     * @brief Método que detiene el escaneo de dispositivos BTLE.
+     ******************************************************************/
     private void detenerBusquedaDispositivosBTLE() {
         if (this.callbackDelEscaneo == null) {
             return;
